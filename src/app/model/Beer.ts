@@ -11,19 +11,18 @@ export class Beer{
     /**
      * 
      * @param id {number} identifiant unique d'une bière
+     * @param name {string}
      * @param categorie { string }
-     * @param name 
-     * @param alcoholDegre 
+     * @param alcoholDegre
      * @param contains 
      * @param price 
      * @param imgUrl 
      */
 
-    constructor(id:number, categorie:string, name:string, alcoholDegre:number, contains:string, price:number, imgUrl:string){
+    constructor(id:number, name:string, categorie:string, alcoholDegre:number, contains:string, price:number, imgUrl:string){
         if (isNaN(id)){
             throw new TypeError('Identifier id must be a number');
         }
-
         this._id=id;
         this._name=name;
         this._categorie=categorie;

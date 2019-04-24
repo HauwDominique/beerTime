@@ -52,3 +52,7 @@ img{
 .detailBeer{
     border:solid black 2px;
 }
+
+.glyphicon-shopping-cart{
+  font-size:30px;
+}

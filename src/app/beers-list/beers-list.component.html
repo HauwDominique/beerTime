@@ -2,18 +2,17 @@
 
   <p>Liste des bières</p>
 
-<div class="container">
+  <div class="container">
+   <button class="btn btn-danger" id="btnShopping" routerLink="/shopping">
+     <span class="glyphicon glyphicon-shopping-cart"></span>
+   </button>
 
- <button class="btn btn-danger" id="btnShopping"
-                routerLink="/shopping">Voir le panier</button>
-</div>
 
   <ul class="list-group">
     <li class="list-group-item"
-        *ngFor="let beer of beers"
-        (click)="onSelect(beer)">
+        *ngFor="let beer of beers">
 
-      <a>
+      <a (click)="onSelect(beer)">
         <img [src]="beer.imgUrl">
         <h4>{{ beer.name }}</h4>
       </a>
@@ -22,21 +21,21 @@
               (click)="addShopping(beer)"
               >Ajouter au panier
       </button>
+
     </li>
   </ul>
 
-  <router-outlet></router-outlet>
+  <!--<router-outlet></router-outlet>-->
 
+  <div *ngIf="_selectedBeer"
+  class="list-group-item detailBeer">
+    <h2>La {{_selectedBeer.name}}</h2>
+    <img [src]="_selectedBeer.imgUrl" alt="">tar
+    <p class="contains">{{ _selectedBeer.contains }}</p>
+    <p class="price">Taux d'alcool : {{ _selectedBeer.alcoholDegre }} degré. - Catégorie : bière {{ _selectedBeer.categorie }}</p>
+    <h4> Prix : <span class="bold"> {{ _selectedBeer.price }} euro </span></h4>
+  </div>
 
-<div *ngIf="_selectedBeer"
-class="list-group-item detailBeer">
-  <h2>La {{_selectedBeer.name}}</h2>
-  <img [src]="_selectedBeer.imgUrl" alt="">
-  <p class="contains">{{ _selectedBeer.contains }}</p>
-  <p class="price">Taux d'alcool : {{ _selectedBeer.alcoholDegre }} degré. - Catégorie : bière {{ _selectedBeer.categorie }}</p>
-  <h4> Prix : <span class="bold"> {{ _selectedBeer.price }} euro </span></h4>
-
-</div>
 </div>
 
 
