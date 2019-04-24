@@ -1,0 +1,28 @@
+<button class="btn btn-success" (click)="goBack()">goBack</button>
+
+<h3>Votre panier contient les éléments suivants : </h3>
+<hr>
+
+<div class="container">
+
+    <ul class="row">
+      <li *ngFor="let cartItem of cartItems" class="col-sm">
+          <img [src]="cartItem.beer.imgUrl" alt="">
+          <span class="name">{{ cartItem.beer.name }} </span> - Prix unitaire : {{ cartItem.beer.price }} euro - Quantité : {{cartItem.count}} - Prix : {{cartItem.price}}
+        <p> Prix total pour cette bière : </p>
+      </li>
+
+        <!--
+            <div>{{products | json }}</div>
+        -->
+    </ul>
+
+<h4 class="price">Prix total du panier : {{ totalPrice }} euros</h4>
+ <h4 class="price">Total d'article dans le panier : {{ totalCartItems }}.</h4>
+
+  <hr>
+
+<button class="btn btn-primary" id="btnGoToBeerList"
+        routerLink="/list">Retour Liste des bières</button>
+</div>
+
