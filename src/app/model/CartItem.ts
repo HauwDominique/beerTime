@@ -18,8 +18,24 @@ export class CartItem{
     return this._count;
   }
 
+  public updateCount(nb:string){
+    let parsed = parseInt(nb);
+    if(isNaN(parsed)){
+      this._count = 1;
+    } else{
+      this._count = (parseInt(nb));
+    }
+  }
+
+  public incrementCount():void{
+    this._count++;
+  }
+
   get price():number{
     return this._beer.price * this._count;
   }
+
+
+
 
 }

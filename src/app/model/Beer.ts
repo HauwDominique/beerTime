@@ -11,21 +11,21 @@ export class Beer{
     /**
      * 
      * @param id {number} identifiant unique d'une bière
-     * @param name {string}
      * @param categorie { string }
+     * @param name {string}
      * @param alcoholDegre
      * @param contains 
      * @param price 
      * @param imgUrl 
      */
 
-    constructor(id:number, name:string, categorie:string, alcoholDegre:number, contains:string, price:number, imgUrl:string){
+    constructor(id:number, categorie:string, name:string, alcoholDegre:number, contains:string, price:number, imgUrl:string){
         if (isNaN(id)){
             throw new TypeError('Identifier id must be a number');
         }
         this._id=id;
-        this._name=name;
         this._categorie=categorie;
+        this._name=name;
         this._alcoholDegre=alcoholDegre;
         this._contains=contains;
         this._price=price;
@@ -60,4 +60,8 @@ export class Beer{
     isAlcoolised():boolean{
         return this.alcoholDegre > 0.5;
     }
+
+  public equalsOnName(beer:Beer):number{
+    return this.name.localeCompare(beer.name);
+  }
 }

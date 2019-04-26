@@ -10,8 +10,8 @@ import {CartItem} from "../model/CartItem";
   templateUrl: './shopping-view.component.html',
   styleUrls: ['./shopping-view.component.css']
 })
-export class ShoppingViewComponent implements OnInit {
 
+export class ShoppingViewComponent implements OnInit {
 
   constructor(private _shoppingService: ShoppingService,
               private activedRoute: ActivatedRoute,
@@ -33,9 +33,11 @@ export class ShoppingViewComponent implements OnInit {
     return this._shoppingService.totalPrice;
   }
 
+
   goBack() {
     this.location.back();
   }
+
 
 }
 

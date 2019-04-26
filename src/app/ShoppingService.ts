@@ -27,4 +27,6 @@ export class ShoppingService{
     public get totalPrice(){
         return this._cart.totalPrice;
     }
+
+
 }

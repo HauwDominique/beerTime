@@ -15,7 +15,7 @@ export class BeersListComponent {
   private _selectedBeer:Beer;
 
   constructor( private _beerService:BeerService,
-              private shoppingService:ShoppingService ) {
+              private _shoppingService:ShoppingService ) {
     this.beers=_beerService.getAllBeers();
   }
 
@@ -24,7 +24,11 @@ export class BeersListComponent {
   }
 
   addShopping(beer:Beer){
-    this.shoppingService.addToCart(beer);
+    this._shoppingService.addToCart(beer);
+  }
+
+  public get totalCartItems():number {
+    return this._shoppingService.totalCartItems;
   }
 
 }

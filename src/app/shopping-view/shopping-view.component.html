@@ -1,4 +1,6 @@
+<div class="btnCenter">
 <button class="btn btn-success" (click)="goBack()">goBack</button>
+</div>
 
 <h3>Votre panier contient les éléments suivants : </h3>
 <hr>
@@ -6,23 +8,52 @@
 <div class="container">
 
     <ul class="row">
-      <li *ngFor="let cartItem of cartItems" class="col-sm">
+      <li *ngFor="let cartItem of cartItems" class="col-sm detailCartItem">
+        <div>
           <img [src]="cartItem.beer.imgUrl" alt="">
-          <span class="name">{{ cartItem.beer.name }} </span> - Prix unitaire : {{ cartItem.beer.price }} euro - Quantité : {{cartItem.count}} - Prix : {{cartItem.price}}
-        <p> Prix total pour cette bière : </p>
+          <span class="name">{{ cartItem.beer.name }} </span>
+        </div>
+        <div id="detailsCartItem">
+          <div class="showPriceOrCount">
+            <p>Prix unitaire</p>
+            <p>{{ cartItem.beer.price }} euro.</p>
+          </div>
+          <div class="showPriceOrCount">
+            <p>Quantité</p>
+            <input type="text" #box placeholder=" {{ cartItem.count }}"
+                                    (keyup)="cartItem.updateCount(box.value)"
+                                    (blur)="cartItem.updateCount(box.value)">
+          </div>
+          <div class="showPriceOrCount">
+            <p>Prix total</p>
+            <p>{{cartItem.price}} euro.</p>
+            <span>  </span>
+          </div>
+        </div>
       </li>
-
-        <!--
-            <div>{{products | json }}</div>
-        -->
     </ul>
 
-<h4 class="price">Prix total du panier : {{ totalPrice }} euros</h4>
- <h4 class="price">Total d'article dans le panier : {{ totalCartItems }}.</h4>
+  <!--
+  <ul class="row">
+    <li *ngFor="let cartItem of cartItems" class="col-sm detailCartItem">
+      <img [src]="cartItem.beer.imgUrl" alt="">
+      <div>
+        <span class="name">{{ cartItem.beer.name }} </span>
+        <p> Prix unitaire : {{ cartItem.beer.price }} euro. - Quantité : {{cartItem.count}} - Prix total pour cet article : {{cartItem.price}} euro.</p>
+        <span>  </span>
+      </div>
+    </li>
+  </ul>
+  -->
 
-  <hr>
+  <h4 class="price">Prix total du panier : {{ totalPrice }} euros.</h4>
+  <h4 class="price">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>
 
-<button class="btn btn-primary" id="btnGoToBeerList"
-        routerLink="/list">Retour Liste des bières</button>
+<hr>
+
+  <div class="btnCenter">
+    <button class="btn btn-primary" id="btnGoToBeerList"
+          routerLink="/list">Retour Liste des bières</button>
+  </div>
 </div>
 

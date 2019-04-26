@@ -7,9 +7,6 @@ import { BeerDetailComponent } from './beer-detail/beer-detail.component';
 import { BeersListComponent } from './beers-list/beers-list.component';
 import { ShoppingViewComponent } from './shopping-view/shopping-view.component';
 
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
-
 
 @NgModule({
   declarations: [
@@ -21,7 +18,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFontAwesomeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

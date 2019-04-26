@@ -1,4 +1,13 @@
 h1{
-    color:blue;
-    font-weight: bold;
+  color:blue;
+  font-weight: bold;
+}
+
+div{
+  text-align: center;
+  background-color:lightyellow;
+  padding: 10px;
+  border-bottom: grey solid 1px;
+  margin-bottom: 10px;
+
 }

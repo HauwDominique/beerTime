@@ -1,9 +1,28 @@
 p{
-    font-size: 1.5em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+/* icone du bouton panier*/
+
+.boxCart{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px;
+  padding : 10px 0px;
+}
+
+.glyphicon-shopping-cart{
+  font-size:25px;
+}
+
+#showNbCartItems{
+  font-weight: bold;
 }
 
 #btnShopping{
-   float:right;
+  padding : 15px 20px 0px;
 }
 
 .contains{
@@ -13,7 +32,6 @@ p{
 .price{
     font-style: italic;
     font-size: 1.1em;
-
 }
 
 ul{
@@ -32,12 +50,13 @@ li{
 }
 
 h2{
-    color:blue;
-    font-weight: bold;
+  color:blue;
+  font-weight: bold;
 }
 
 h4{
-    color : blue;
+  color : blue;
+  text-align: center;
 }
 
 .bold{
@@ -45,14 +64,15 @@ h4{
 }
 
 img{
-    width : 140px;
-    height: 140px;
+  width : 140px;
+  height: 140px;
 }
 
 .detailBeer{
-    border:solid black 2px;
+  border:solid black 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.glyphicon-shopping-cart{
-  font-size:30px;
-}
