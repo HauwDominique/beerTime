@@ -17,13 +17,31 @@
           <div class="showPriceOrCount">
             <p>Prix unitaire</p>
             <p>{{ cartItem.beer.price }} euro.</p>
-          </div>
+         </div>
+
           <div class="showPriceOrCount">
             <p>Quantité</p>
-            <input type="text" #box placeholder=" {{ cartItem.count }}"
-                                    (keyup)="cartItem.updateCount(box.value)"
-                                    (blur)="cartItem.updateCount(box.value)">
+
+  <!--
+
+          <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+            <div class="form-group">
+               <label for="quantites">Quantité</label>
+               <select class="form-control" id="quantites"
+                       required
+                       [(ngModel)]="model.quantites" name="quantites">
+
+                 <option *ngFor="let quantite of quantites" [value]="quantite">{{ quantite }}</option>
+               </select>
+             </div>
+ -->
+
+             <input type="number" min="0" #box placeholder=" {{ cartItem.count }}"
+                                     (keyup)="cartItem.updateCount(box.value)"
+                                     (blur)="cartItem.updateCount(box.value)">
           </div>
+
           <div class="showPriceOrCount">
             <p>Prix total</p>
             <p>{{cartItem.price}} euro.</p>

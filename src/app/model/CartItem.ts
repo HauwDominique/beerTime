@@ -4,6 +4,8 @@ export class CartItem{
 
   private _beer:Beer=null;
   private _count:number=0;
+  public quantites = [1, 2, 3, 4, 5];
+
 
   constructor(beer:Beer, count:number){
     this._beer = beer;

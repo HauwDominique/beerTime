@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BeerDetailComponent } from './beer-detail/beer-detail.component';
 import { BeersListComponent } from './beers-list/beers-list.component';
 import { ShoppingViewComponent } from './shopping-view/shopping-view.component';
+import { FormsModule } from "@angular/forms";
+
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { ShoppingViewComponent } from './shopping-view/shopping-view.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
 
   ],
   providers: [],
