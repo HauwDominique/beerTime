@@ -10,8 +10,8 @@
     <ul class="row">
       <li *ngFor="let cartItem of cartItems" class="col-sm detailCartItem">
         <div>
-          <img [src]="cartItem.beer.imgUrl" alt="">
-          <span class="name">{{ cartItem.beer.name }} </span>
+          <img [src]="cartItem.beer.imgUrl">
+          <span class="name">La {{ cartItem.beer.name }} </span>
         </div>
         <div id="detailsCartItem">
           <div class="showPriceOrCount">
@@ -20,26 +20,25 @@
          </div>
 
           <div class="showPriceOrCount">
-            <p>Quantité</p>
 
-  <!--
+            <input type="text" min="0" #ctrl placeholder=" {{ cartItem.count }}"
+                   *ngIf="cartItem.count>4"
+                   (blur)="cartItem.updateCount(ctrl.value)">
 
-          <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+            <div class="form-group"
+                  *ngIf="cartItem.count<=4">
 
-            <div class="form-group">
                <label for="quantites">Quantité</label>
-               <select class="form-control" id="quantites"
-                       required
-                       [(ngModel)]="model.quantites" name="quantites">
-
-                 <option *ngFor="let quantite of quantites" [value]="quantite">{{ quantite }}</option>
+               <select class="form-control" id="quantites" name="quantites"
+                       [(ngModel)]="cartItem.count"
+                       #box
+                       (mouseup)="cartItem.updateCount(box.value)">
+                 <option *ngFor="let quantite of cartItem.quantites"> {{ quantite }}</option>
+                 <hr>
+                 <option>+5</option>
                </select>
              </div>
- -->
 
-             <input type="number" min="0" #box placeholder=" {{ cartItem.count }}"
-                                     (keyup)="cartItem.updateCount(box.value)"
-                                     (blur)="cartItem.updateCount(box.value)">
           </div>
 
           <div class="showPriceOrCount">
@@ -47,22 +46,17 @@
             <p>{{cartItem.price}} euro.</p>
             <span>  </span>
           </div>
+
+          <div class="showPriceOrCount">
+            <button class="btn btn-danger deleteCartItem"
+                    (click)="_shoppingService.deleteToCart(cartItem.beer)"
+            > X</button>
+                    <!-- (click)="cartItems.splice(this._cartItems, 1)" -->
+          </div>
+
         </div>
       </li>
     </ul>
-
-  <!--
-  <ul class="row">
-    <li *ngFor="let cartItem of cartItems" class="col-sm detailCartItem">
-      <img [src]="cartItem.beer.imgUrl" alt="">
-      <div>
-        <span class="name">{{ cartItem.beer.name }} </span>
-        <p> Prix unitaire : {{ cartItem.beer.price }} euro. - Quantité : {{cartItem.count}} - Prix total pour cet article : {{cartItem.price}} euro.</p>
-        <span>  </span>
-      </div>
-    </li>
-  </ul>
-  -->
 
   <h4 class="price">Prix total du panier : {{ totalPrice }} euros.</h4>
   <h4 class="price">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>
@@ -73,5 +67,6 @@
     <button class="btn btn-primary" id="btnGoToBeerList"
           routerLink="/list">Retour Liste des bières</button>
   </div>
+
 </div>
 

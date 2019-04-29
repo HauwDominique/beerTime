@@ -33,7 +33,6 @@ export class ShoppingViewComponent implements OnInit {
     return this._shoppingService.totalPrice;
   }
 
-
   goBack() {
     this.location.back();
   }

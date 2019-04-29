@@ -39,7 +39,6 @@ export class Cart{
     return -1;
   }
 
-
   /**
    * ajoute une bière au panier, ou bien incrémente ce produit de 1 si il est déjà dans le panier
    * @param beer
@@ -51,6 +50,11 @@ export class Cart{
     } else {
       this._cartItems[positionCartItem].incrementCount();
     }
+  }
+
+  public delete(beer:Beer):void{
+    let positionCartItem:number = this._searchCartItem(beer);
+    this._cartItems.splice(positionCartItem, 1);
   }
 
   public get cartItems():CartItem[] {

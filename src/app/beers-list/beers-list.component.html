@@ -17,7 +17,7 @@
 
         <a (click)="onSelect(beer)">
           <img [src]="beer.imgUrl">
-          <h4>{{ beer.name }}</h4>
+          <h4>La {{ beer.name }}</h4>
         </a>
 
         <button class="btn btn-primary"
@@ -28,9 +28,6 @@
       </li>
     </ul>
 
-
-
-  <!--<router-outlet></router-outlet>-->
 
   <div *ngIf="_selectedBeer"
   class="list-group-item detailBeer">

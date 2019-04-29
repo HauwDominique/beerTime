@@ -16,6 +16,10 @@ export class ShoppingService{
         this._cart.add(beer);
     }
 
+    public deleteToCart(beer:Beer){
+      this._cart.delete(beer);
+    }
+
     public get cartItems():CartItem[]{
         return this._cart.cartItems;
     }

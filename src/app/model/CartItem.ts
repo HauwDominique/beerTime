@@ -4,7 +4,7 @@ export class CartItem{
 
   private _beer:Beer=null;
   private _count:number=0;
-  public quantites = [1, 2, 3, 4, 5];
+  public quantites = [0, 1, 2, 3, 4];
 
 
   constructor(beer:Beer, count:number){
@@ -36,7 +36,6 @@ export class CartItem{
   get price():number{
     return this._beer.price * this._count;
   }
-
 
 
 
