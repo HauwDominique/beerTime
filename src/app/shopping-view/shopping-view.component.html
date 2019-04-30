@@ -15,7 +15,7 @@
         </div>
         <div id="detailsCartItem">
           <div class="showPriceOrCount">
-            <p>Prix unitaire</p>
+            <p class="bold">Prix unitaire</p>
             <p>{{ cartItem.beer.price }} euro.</p>
          </div>
 
@@ -42,7 +42,7 @@
           </div>
 
           <div class="showPriceOrCount">
-            <p>Prix total</p>
+            <p class="bold">Prix total</p>
             <p>{{cartItem.price}} euro.</p>
             <span>  </span>
           </div>
@@ -50,8 +50,7 @@
           <div class="showPriceOrCount">
             <button class="btn btn-danger deleteCartItem"
                     (click)="_shoppingService.deleteToCart(cartItem.beer)"
-            > X</button>
-                    <!-- (click)="cartItems.splice(this._cartItems, 1)" -->
+            > Supprimer</button>
           </div>
 
         </div>

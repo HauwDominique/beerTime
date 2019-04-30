@@ -52,6 +52,10 @@ export class Cart{
     }
   }
 
+  /**
+   * supprime une bière au panier
+   * @param beer
+   */
   public delete(beer:Beer):void{
     let positionCartItem:number = this._searchCartItem(beer);
     this._cartItems.splice(positionCartItem, 1);
