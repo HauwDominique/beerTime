@@ -32,5 +32,15 @@ export class ShoppingService{
         return this._cart.totalPrice;
     }
 
+  /**
+   *Vérifie si le panier est vide
+   * @return boolean
+   */
+    public cartIsEmpty():boolean {
+      if (this.totalCartItems === 0) {
+        return true;
+      }
+    }
+
 
 }

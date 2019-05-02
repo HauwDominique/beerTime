@@ -1,13 +1,24 @@
 <div class="boxCart">
-  <button class="btn btn-danger" id="btnShopping" routerLink="/shopping">
-    <span class="glyphicon glyphicon-shopping-cart"></span>
-    <p id="showNbCartItems"> {{ totalCartItems }}</p>
-  </button>
+  <div>
+    <button id="btnShopping" routerLink="/shopping"
+            [disabled]="_shoppingService.cartIsEmpty()"
+            [ngClass]="{'btn btn-success':!_shoppingService.cartIsEmpty(),
+                        'btn btn-primary':_shoppingService.cartIsEmpty()
+                        }">
+      <span class="glyphicon glyphicon-shopping-cart"></span>
+      <p id="showNbCartItems"> {{ totalCartItems }}</p>
+    </button>
+
+    <p *ngIf="_shoppingService.cartIsEmpty()" class="text-primary">Votre panier est vide !</p>
+    <p *ngIf="!_shoppingService.cartIsEmpty()" class="text-success bold">Commandez !</p>
+
+  </div>
 </div>
+
 
 <div class="shopping">
 
-  <p>Liste des bières</p>
+  <p class="text-primary bold">Liste des bières</p>
 
   <div class="container">
 

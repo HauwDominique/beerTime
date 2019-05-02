@@ -2,70 +2,81 @@
 <button class="btn btn-success" (click)="goBack()">goBack</button>
 </div>
 
-<h3>Votre panier contient les éléments suivants : </h3>
-<hr>
 
-<div class="container">
+<div *ngIf="_shoppingService.cartIsEmpty()">
+  <h3>Votre panier est vide !</h3>
+</div>
 
+<!--Affiche la liste des produits du panier-->
+
+<div *ngIf="!_shoppingService.cartIsEmpty()">
+  <h3>Votre panier contient les éléments suivants : </h3>
+  <hr>
+
+  <div class="container">
     <ul class="row">
-      <li *ngFor="let cartItem of cartItems" class="col-sm detailCartItem">
-        <div>
-          <img [src]="cartItem.beer.imgUrl">
-          <span class="name">La {{ cartItem.beer.name }} </span>
-        </div>
-        <div id="detailsCartItem">
-          <div class="showPriceOrCount">
-            <p class="bold">Prix unitaire</p>
-            <p>{{ cartItem.beer.price }} euro.</p>
-         </div>
+      <ng-container *ngFor="let cartItem of cartItems" class="col-sm detailCartItem">
+        <ng-container *ngIf="cartItem.count !==0">
+          <div class="cartItem">
+          <div>
+            <img [src]="cartItem.beer.imgUrl">
+            <span class="name">La {{ cartItem.beer.name }} </span>
+          </div>
+          <div id="detailsCartItem">
+            <div class="showPriceOrCount">
+              <p class="bold">Prix unitaire</p>
+              <p>{{ cartItem.beer.price }} euro.</p>
+           </div>
 
-          <div class="showPriceOrCount">
+            <div class="showPriceOrCount">
 
-            <input type="text" min="0" #ctrl placeholder=" {{ cartItem.count }}"
-                   *ngIf="cartItem.count>4"
-                   (blur)="cartItem.updateCount(ctrl.value)">
+              <input type="text" min="0" #ctrl placeholder=" {{ cartItem.count }}"
+                     *ngIf="cartItem.count>4"
+                     (blur)="cartItem.updateCount(ctrl.value)">
 
-            <div class="form-group"
-                  *ngIf="cartItem.count<=4">
+              <div class="form-group"
+                    *ngIf="cartItem.count<=4">
 
-               <label for="quantites">Quantité</label>
-               <select class="form-control" id="quantites" name="quantites"
-                       [(ngModel)]="cartItem.count"
-                       #box
-                       (mouseup)="cartItem.updateCount(box.value)">
-                 <option *ngFor="let quantite of cartItem.quantites"> {{ quantite }}</option>
-                 <hr>
-                 <option>+5</option>
-               </select>
-             </div>
+                 <label for="quantites">Quantité</label>
+                 <select class="form-control" id="quantites" name="quantites"
+                         [(ngModel)]="cartItem.count"
+                         #box
+                         (mouseup)="cartItem.updateCount(box.value)">
+                   <option *ngFor="let quantite of cartItem.quantites"> {{ quantite }}</option>
+                   <hr>
+                   <option>+5</option>
+                 </select>
+               </div>
+
+            </div>
+
+            <div class="showPriceOrCount">
+              <p class="bold">Prix total</p>
+              <p>{{cartItem.price}} euro.</p>
+              <span>  </span>
+            </div>
+
+            <div class="showPriceOrCount">
+              <button class="btn btn-danger deleteCartItem"
+                      (click)="_shoppingService.deleteToCart(cartItem.beer)"
+              > Supprimer</button>
+            </div>
 
           </div>
 
-          <div class="showPriceOrCount">
-            <p class="bold">Prix total</p>
-            <p>{{cartItem.price}} euro.</p>
-            <span>  </span>
           </div>
-
-          <div class="showPriceOrCount">
-            <button class="btn btn-danger deleteCartItem"
-                    (click)="_shoppingService.deleteToCart(cartItem.beer)"
-            > Supprimer</button>
-          </div>
-
-        </div>
-      </li>
+          </ng-container>
+      </ng-container>
     </ul>
 
   <h4 class="price">Prix total du panier : {{ totalPrice }} euros.</h4>
   <h4 class="price">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>
 
-<hr>
-
-  <div class="btnCenter">
-    <button class="btn btn-primary" id="btnGoToBeerList"
-          routerLink="/list">Retour Liste des bières</button>
   </div>
-
 </div>
 
+<hr>
+<div class="btnCenter">
+  <button class="btn btn-primary" id="btnGoToBeerList"
+          routerLink="/list">Retour à la liste des bières</button>
+</div>

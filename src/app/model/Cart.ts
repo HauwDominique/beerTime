@@ -6,7 +6,6 @@ export class Cart{
 
   private _cartItems:CartItem[]=[];
 
-
   /**
    * vérifie si le produit à ajouter n'est pas déjà présent dans le tableau des produits
    * @booleans
