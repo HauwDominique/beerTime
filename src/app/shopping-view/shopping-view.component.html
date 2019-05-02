@@ -18,7 +18,7 @@
       <ng-container *ngFor="let cartItem of cartItems" class="col-sm detailCartItem">
         <ng-container *ngIf="cartItem.count !==0">
           <div class="cartItem">
-          <div>
+          <div class="nameItem">
             <img [src]="cartItem.beer.imgUrl">
             <span class="name">La {{ cartItem.beer.name }} </span>
           </div>
@@ -30,9 +30,9 @@
 
             <div class="showPriceOrCount">
 
-              <input type="text" min="0" #ctrl placeholder=" {{ cartItem.count }}"
+              <input type="text" min="0" #nb placeholder=" {{ cartItem.count }}"
                      *ngIf="cartItem.count>4"
-                     (blur)="cartItem.updateCount(ctrl.value)">
+                     (blur)="cartItem.updateCount(nb.value)">
 
               <div class="form-group"
                     *ngIf="cartItem.count<=4">
@@ -69,8 +69,8 @@
       </ng-container>
     </ul>
 
-  <h4 class="price">Prix total du panier : {{ totalPrice }} euros.</h4>
-  <h4 class="price">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>
+    <h4 class="price">Prix total du panier : <span class="bold"> {{ totalPrice }} </span> euros.</h4>
+    <h4 class="price">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>
 
   </div>
 </div>
