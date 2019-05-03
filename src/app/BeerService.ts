@@ -9,7 +9,6 @@ const BEERS:Beer[]= [
     new Beer(4, 'brune', 'Tombeuse', 5, 'Une bière parfumée de miel et de citron.', 3, '/assets/img/ginetteBeer.jpeg'),
     new Beer(5, 'blonde', 'Sans alcool', 0, 'Une bière qui ne vous fera pas tourner la tête.', 3.5, '/assets/img/odonBeer.jpeg'),
     new Beer(6, 'brune', 'Quebec', 5, 'Une bière canadienne inoubliable..', 4.5, '/assets/img/canadianBeer.jpeg'),
-
 ];
 
 @Injectable({

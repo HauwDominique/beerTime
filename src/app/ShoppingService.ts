@@ -37,9 +37,7 @@ export class ShoppingService{
    * @return boolean
    */
     public cartIsEmpty():boolean {
-      if (this.totalCartItems === 0) {
-        return true;
-      }
+      return this.totalCartItems === 0;
     }
 
 

@@ -19,6 +19,9 @@ p{
   justify-content : center;
   align-items:center;
   width : 260px;
+  position: relative;
+  top:5px;
+  right: 10px;
 }
 
 .glyphicon-shopping-cart{
@@ -30,7 +33,9 @@ p{
 }
 
 #btnShopping{
-  padding : 15px 20px 0px;
+  padding : 8px 10px 0px;
+  width: 70px;
+  height: 70px;
 }
 
 .contains{
