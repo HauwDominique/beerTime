@@ -59,3 +59,21 @@ input{
 .form-control{
   padding : 6px 2px;
 }
+
+/*PopIn ____________________________*/
+.popIn{
+  position:relative;
+  top:5px;
+  left:50%;
+  transform: translate(-50%, -50%);
+  padding  :10px;
+  border : solid 1px black;
+  border-radius : 5px;
+  box-shadow: grey 2px 2px 4px 1px;
+  background-color: white;
+}
+
+.buttonsBox{
+  display: flex;
+  justify-content: flex-end;
+}

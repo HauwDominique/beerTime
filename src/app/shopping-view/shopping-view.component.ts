@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ShoppingService} from '../ShoppingService';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {CartItem} from "../model/CartItem";
+import {PopInDeleteService} from "../PopInDeleteService";
 
 
 @Component({
@@ -14,6 +15,7 @@ import {CartItem} from "../model/CartItem";
 export class ShoppingViewComponent implements OnInit {
 
   constructor(private _shoppingService: ShoppingService,
+              private _popInDeleteService : PopInDeleteService,
               private activedRoute: ActivatedRoute,
               private location: Location) {
   }
@@ -36,7 +38,6 @@ export class ShoppingViewComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-
 
 }
 

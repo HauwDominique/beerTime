@@ -85,12 +85,6 @@ export class Cart{
     return totalPrice;
   }
 
-  TODO
-  /*
-  public get totalItem(){
-  }
-*/
-
   /** Autre méthode faisant la même chose que searchCartItem
    *
    *

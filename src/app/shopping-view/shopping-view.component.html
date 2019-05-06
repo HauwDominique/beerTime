@@ -42,7 +42,7 @@
                          [(ngModel)]="cartItem.count"
                          #box
                          (mouseup)="cartItem.updateCount(box.value)">
-                   <option *ngFor="let quantite of cartItem.quantites"> {{ quantite }}</option>
+                   <option *ngFor="let quantite of cartItem.quantites"> {{ quantite }} </option>
                    <hr>
                    <option>+5</option>
                  </select>
@@ -57,20 +57,48 @@
             </div>
 
             <div class="showPriceOrCount">
-              <button class="btn btn-danger deleteCartItem"
-                      (click)="_shoppingService.deleteToCart(cartItem.beer)"
+
+              <!-- <button class="btn btn-danger deleteCartItem" (click)="_shoppingService.deleteToCart(cartItem.beer)"> Supprimer</button>
+              -->
+
+               <button class="btn btn-danger deleteCartItem"
+                      (click)="cartItem.showPopInDelete()"
               > Supprimer</button>
+
+              <!--
+              <app-pop-in-delete *ngIf="cartItem._showPopInDelete">
+              -->
+
+                <div class="popIn" *ngIf="cartItem._showPopInDelete">
+
+                  <p class="text-primary bold">Voulez-vous vraiment supprimer cette article de votre panier ?</p>
+
+                  <div class="buttonsBox">
+
+                    <button class="btn" (click)="cartItem.hidePopInDelete()">Annuler</button>
+
+                    <button class="btn btn-danger" (click)="_shoppingService.deleteToCart(cartItem.beer)">Valider</button>
+
+                  </div>
+
+                </div>
+
+              <!--
+              </app-pop-in-delete>
+              -->
+
             </div>
 
           </div>
+
 
           </div>
           </ng-container>
       </ng-container>
     </ul>
 
-    <h4 class="price">Prix total du panier : <span class="bold"> {{ totalPrice }} </span> euros.</h4>
-    <h4 class="price">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>
+    <h4 class="">Prix total du panier : <span class="bold"> {{ totalPrice }} </span> euros.</h4>
+    <h4 class="">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>
 
   </div>
 </div>
@@ -80,3 +108,4 @@
   <button class="btn btn-primary" id="btnGoToBeerList"
           routerLink="/list">Retour à la liste des bières</button>
 </div>
+
