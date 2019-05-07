@@ -7,13 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './beer-detail.component.html',
   styleUrls: ['./beer-detail.component.css']
 })
-export class BeerDetailComponent implements OnInit {
+export class BeerDetailComponent {
 
-  @Input() beer:Beer;
+  private _beer:Beer;
 
-  constructor( private route:ActivatedRoute) { }
 
-  ngOnInit() {
+  @Input()
+  set beer(beer:Beer){
+    this._beer=beer;
   }
 
 }

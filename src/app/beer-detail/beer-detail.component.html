@@ -1,10 +1,8 @@
-<!--<p>Détail de cette bière</p>-->
-
-<!--<div *ngIf="beer">-->
-
-<!--</div>-->
-<!--<h3> Nom : {{ beer.id }} </h3>-->
-
-
-
-<!--<button routerLink="/list"> Accueil</button>-->
+<div  class="list-group-item detail_beer">
+  <h2>La {{ _beer.name }}</h2>
+  <img [src]="_beer.imgUrl" alt="">
+  <p class="contains">{{ _beer.contains }}</p>
+  <p class="price">Taux d'alcool : {{ _beer.alcoholDegre }} degré. - Catégorie :
+    bière {{ _beer.categorie }}</p>
+  <h4> Prix : <span class="bold"> {{ _beer.price }} euro </span></h4>
+</div>

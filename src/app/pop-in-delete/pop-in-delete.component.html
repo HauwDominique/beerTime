@@ -1,12 +1,31 @@
 <div class="popIn">
 
-  <p class="text-primary bold">Voulez-vous vraiment supprimer cette article de votre panier ?</p>
+  <p class="text-primary bold"> {{ title }}</p>
 
   <div class="buttonsBox">
 
+    <!--
     <button class="btn" (click)="_popInDeleteService.hidePopInDelete()">Annuler</button>
 
     <button class="btn btn-danger" (click)="delete(this._)">Valider</button>
+    -->
+
+  <ng-content ></ng-content>
+
+    <!--<div class="buttonsBox">-->
+      <!--<button class="btn" (click)="test.hidePopInDelete()">Annuler</button>-->
+      <!--<button class="btn btn-danger" (click)="_shoppingService.deleteToCart(cartItem.beer)">Valider</button>-->
+    <!--</div>-->
+
+
+    <div *ngFor="let button of buttons" class="buttonsBox">
+
+      <button class="btn {{ button.className }}" (click)="handleButtonEvent(button)"> {{ button.label }}</button>
+
+
+    </div>
+
+
 
   </div>
 

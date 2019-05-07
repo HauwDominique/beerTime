@@ -1,5 +1,5 @@
 <div class="btnCenter">
-<button class="btn btn-success" (click)="goBack()">goBack</button>
+  <button class="btn btn-success" (click)="goBack()">goBack</button>
 </div>
 
 
@@ -62,40 +62,41 @@
               -->
 
                <button class="btn btn-danger deleteCartItem"
-                      (click)="cartItem.showPopInDelete()"
+                      (click)="handleCartItemDeleteRequest(cartItem)"
               > Supprimer</button>
 
-              <!--
-              <app-pop-in-delete *ngIf="cartItem._showPopInDelete">
-              -->
 
-                <div class="popIn" *ngIf="cartItem._showPopInDelete">
+                <!--<div class="popIn" *ngIf="cartItem._showPopInDelete">-->
 
-                  <p class="text-primary bold">Voulez-vous vraiment supprimer cette article de votre panier ?</p>
+                  <!--<p class="text-primary bold">Voulez-vous vraiment supprimer cette article de votre panier ?</p>-->
 
-                  <div class="buttonsBox">
+                  <!--<div class="buttonsBox">-->
 
-                    <button class="btn" (click)="cartItem.hidePopInDelete()">Annuler</button>
+                    <!--<button class="btn" (click)="cartItem.hidePopInDelete()">Annuler</button>-->
 
-                    <button class="btn btn-danger" (click)="_shoppingService.deleteToCart(cartItem.beer)">Valider</button>
+                    <!--<button class="btn btn-danger" (click)="handleCartItemDelete(cartItem)">Valider</button>-->
 
-                  </div>
-
-                </div>
-
-              <!--
-              </app-pop-in-delete>
-              -->
+                  <!--</div>-->
+                <!--</div>-->
 
             </div>
 
           </div>
 
-
           </div>
           </ng-container>
       </ng-container>
     </ul>
+
+    <!-- a optimiser -->
+
+    <app-pop-in-delete *ngIf="cartItemToDelete !== null" title="Voulez-vous vraiment supprimer cette article de votre panier ?"
+                       [buttons]="popInButtons" (onButtonClick)="handlePopInEvent($event)">
+      <app-beer-detail [beer]="cartItemToDelete.beer"></app-beer-detail>
+    </app-pop-in-delete>
+
+    <!--<app-pop-in-delete test="cartItemToDelete"-->
+                       <!--*ngIf="cartItemToDelete !== null">SuppPopInComponent</app-pop-in-delete>-->
 
     <h4 class="">Prix total du panier : <span class="bold"> {{ totalPrice }} </span> euros.</h4>
     <h4 class="">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>

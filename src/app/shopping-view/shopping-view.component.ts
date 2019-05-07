@@ -4,15 +4,20 @@ import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 import {CartItem} from "../model/CartItem";
 import {PopInDeleteService} from "../PopInDeleteService";
+import {Button} from "../pop-in-delete/Button";
 
 
 @Component({
   selector: 'app-shopping-view',
   templateUrl: './shopping-view.component.html',
-  styleUrls: ['./shopping-view.component.css']
+  styleUrls: ['./shopping-view.component.css'],
+
 })
 
 export class ShoppingViewComponent implements OnInit {
+
+  public cartItemToDelete : CartItem = null;
+  public popInButtons:Button[] = [new Button("valider", "btn-success"), new Button("annuler", "btn-default")];
 
   constructor(private _shoppingService: ShoppingService,
               private _popInDeleteService : PopInDeleteService,
@@ -37,6 +42,18 @@ export class ShoppingViewComponent implements OnInit {
 
   goBack() {
     this.location.back();
+  }
+
+  public handleCartItemDeleteRequest(cartItem){
+    this.cartItemToDelete = cartItem;
+    // this.cartItemToDelete;
+  }
+
+  public handlePopInEvent(button:Button){
+    if(button.label === this.popInButtons[0].label){
+      this._shoppingService.deleteToCart(this.cartItemToDelete.beer);
+    }
+    this.cartItemToDelete = null;
   }
 
 }

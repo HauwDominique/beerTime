@@ -31,20 +31,21 @@
           <h4>La {{ beer.name }}</h4>
         </a>
 
-        <button class="btn btn-primary" (click)="addShopping(beer)"> Ajouter au panier </button>
+        <button class="btn btn-primary" (click)="addShopping(beer)"> Ajouter au panier</button>
 
       </li>
     </ul>
 
 
-  <div *ngIf="_selectedBeer"
-  class="list-group-item detailBeer">
-    <h2>La {{_selectedBeer.name}}</h2>
-    <img [src]="_selectedBeer.imgUrl" alt="">
-    <p class="contains">{{ _selectedBeer.contains }}</p>
-    <p class="price">Taux d'alcool : {{ _selectedBeer.alcoholDegre }} degré. - Catégorie : bière {{ _selectedBeer.categorie }}</p>
-    <h4> Prix : <span class="bold"> {{ _selectedBeer.price }} euro </span></h4>
-  </div>
+    <div *ngIf="_selectedBeer"
+         class="list-group-item detailBeer">
+      <h2>La {{_selectedBeer.name}}</h2>
+      <img [src]="_selectedBeer.imgUrl" alt="">
+      <p class="contains">{{ _selectedBeer.contains }}</p>
+      <p class="price">Taux d'alcool : {{ _selectedBeer.alcoholDegre }} degré. - Catégorie :
+        bière {{ _selectedBeer.categorie }}</p>
+      <h4> Prix : <span class="bold"> {{ _selectedBeer.price }} euro </span></h4>
+    </div>
   </div>
 
 </div>
