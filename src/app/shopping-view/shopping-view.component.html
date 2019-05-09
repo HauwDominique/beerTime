@@ -82,13 +82,13 @@
       </ng-container>
     </ul>
 
-    <!-- affiche la PopIn -->
+    <!-- affiche la PopIn de suppression-->
 
-    <app-pop-in-delete *ngIf="cartItemToDelete !== null"
+    <app-pop-in *ngIf="cartItemToDelete !== null"
                        title="Voulez-vous vraiment supprimer cette article de votre panier ?"
                        [buttons]="popInButtons" (onButtonClick)="handlePopInEvent($event)">
       <app-beer-detail [beer]="cartItemToDelete.beer"></app-beer-detail>
-    </app-pop-in-delete>
+    </app-pop-in>
 
 
     <h4 class="">Prix total du panier : <span class="bold"> {{ totalPrice }} </span> euros.</h4>
@@ -98,15 +98,23 @@
 </div>
 
 
+<!-- affiche la popIn de connexion -->
+
 <div class="btnCenter" *ngIf="!_shoppingService.cartIsEmpty()">
   <button class="btn btn-success"
-          (click)="handleCartItemConnectCountRequest()">Passer la commande</button>
+          (click)="handleConnectToCountRequest(_shoppingService.cartItems)">Passer la commande</button>
 
-  <app-pop-in-delete *ngIf=""
-                      title="identifiez-vous"
-                      [buttons]="popInButtons" (onButtonClick)="handleConnectCountEvent($event)">
+  <app-pop-in *ngIf="cartToValidated != null"
+                      title="Connexion"
+                      [buttons]="popInButtonsConnexion" (onButtonToConnectClick)="handleConnectToCountEvent($event)">
 
-  </app-pop-in-delete>
+    <app-pop-in-order [buttonOrder]="popInButtonsOrder"></app-pop-in-order>
+
+    <app-pop-in-connexion></app-pop-in-connexion>
+
+
+
+  </app-pop-in>
 </div>
 
 <hr>

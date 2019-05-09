@@ -7,8 +7,10 @@ import { BeerDetailComponent } from './beer-detail/beer-detail.component';
 import { BeersListComponent } from './beers-list/beers-list.component';
 import { ShoppingViewComponent } from './shopping-view/shopping-view.component';
 import { FormsModule } from "@angular/forms";
-import { PopInDeleteComponent } from './pop-in-delete/pop-in-delete.component';
+import { PopInComponent } from './pop-in/pop-in.component';
 import { OrderCartComponent } from './order-cart/order-cart.component';
+import { PopInConnexionComponent } from './pop-in/pop-in-connexion/pop-in-connexion.component';
+import { PopInOrderComponent } from './pop-in/pop-in-order/pop-in-order.component';
 
 
 
@@ -18,8 +20,10 @@ import { OrderCartComponent } from './order-cart/order-cart.component';
     BeerDetailComponent,
     BeersListComponent,
     ShoppingViewComponent,
-    PopInDeleteComponent,
-    OrderCartComponent
+    PopInComponent,
+    OrderCartComponent,
+    PopInConnexionComponent,
+    PopInOrderComponent
   ],
   imports: [
     BrowserModule,

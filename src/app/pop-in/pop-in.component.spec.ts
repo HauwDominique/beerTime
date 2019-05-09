@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopInDeleteComponent } from './pop-in-delete.component';
+import { PopInComponent } from './pop-in.component';
 
-describe('PopInDeleteComponent', () => {
-  let component: PopInDeleteComponent;
-  let fixture: ComponentFixture<PopInDeleteComponent>;
+describe('PopInComponent', () => {
+  let component: PopInComponent;
+  let fixture: ComponentFixture<PopInComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopInDeleteComponent ]
+      declarations: [ PopInComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopInDeleteComponent);
+    fixture = TestBed.createComponent(PopInComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
