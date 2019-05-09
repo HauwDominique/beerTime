@@ -17,7 +17,7 @@ import {Button} from "../pop-in-delete/Button";
 export class ShoppingViewComponent implements OnInit {
 
   public cartItemToDelete : CartItem = null;
-  public popInButtons:Button[] = [new Button("valider", "btn-success"), new Button("annuler", "btn-default")];
+  public popInButtons:Button[] = [ new Button("Annuler", "btn-secondary"), new Button("Valider", "btn-success")];
 
   constructor(private _shoppingService: ShoppingService,
               private _popInDeleteService : PopInDeleteService,
@@ -50,7 +50,7 @@ export class ShoppingViewComponent implements OnInit {
   }
 
   public handlePopInEvent(button:Button){
-    if(button.label === this.popInButtons[0].label){
+    if(button.label === this.popInButtons[1].label){
       this._shoppingService.deleteToCart(this.cartItemToDelete.beer);
     }
     this.cartItemToDelete = null;

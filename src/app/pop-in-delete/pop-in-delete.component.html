@@ -1,8 +1,6 @@
 <div class="popIn">
 
-  <p class="text-primary bold"> {{ title }}</p>
-
-  <div class="buttonsBox">
+  <p class="text-danger bold"> {{ title }}</p>
 
     <!--
     <button class="btn" (click)="_popInDeleteService.hidePopInDelete()">Annuler</button>
@@ -17,10 +15,11 @@
       <!--<button class="btn btn-danger" (click)="_shoppingService.deleteToCart(cartItem.beer)">Valider</button>-->
     <!--</div>-->
 
+  <div class="buttonsBox">
 
-    <div *ngFor="let button of buttons" class="buttonsBox">
+  <div *ngFor="let button of buttons" class="buttonsBox">
 
-      <button class="btn {{ button.className }}" (click)="handleButtonEvent(button)"> {{ button.label }}</button>
+    <button class="btn {{ button.className }}" (click)="handleButtonEvent(button)"> <span class="bold">{{ button.label }}</span></button>
 
 
     </div>
