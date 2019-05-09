@@ -8,6 +8,7 @@ import { BeersListComponent } from './beers-list/beers-list.component';
 import { ShoppingViewComponent } from './shopping-view/shopping-view.component';
 import { FormsModule } from "@angular/forms";
 import { PopInDeleteComponent } from './pop-in-delete/pop-in-delete.component';
+import { OrderCartComponent } from './order-cart/order-cart.component';
 
 
 
@@ -17,7 +18,8 @@ import { PopInDeleteComponent } from './pop-in-delete/pop-in-delete.component';
     BeerDetailComponent,
     BeersListComponent,
     ShoppingViewComponent,
-    PopInDeleteComponent
+    PopInDeleteComponent,
+    OrderCartComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,6 @@ export class CartItem{
 
   private _beer:Beer=null;
   private _count:number=0;
-  public _showPopInDelete:boolean=false;
   public quantites = [0, 1, 2, 3, 4];
 
 
@@ -19,22 +18,6 @@ export class CartItem{
 
   get count():number{
     return this._count;
-  }
-
-  /**
-   * méthode pour afficher la pop In de suppression
-   * @return boolean
-   */
-  get showPopInDelete():boolean{
-    return this._showPopInDelete = true;
-  }
-
-  /**
-   * méthode pour cacher la popIn de suppression
-   * @return boolean
-   */
-  public hidePopInDelete(){
-    return this._showPopInDelete = false;
   }
 
 
@@ -59,7 +42,6 @@ export class CartItem{
   get price():number{
     return this._beer.price * this._count;
   }
-
 
 
 

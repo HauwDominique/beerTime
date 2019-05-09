@@ -1,7 +1,14 @@
+<!--
 <div class="btnCenter">
   <button class="btn btn-success" (click)="goBack()">goBack</button>
 </div>
+-->
 
+<div class="btnCenter">
+  <button class="btn btn-primary" id="btnGoToBeerList"
+          routerLink="/list">Retour à la liste des bières
+  </button>
+</div>
 
 <div *ngIf="_shoppingService.cartIsEmpty()">
   <h3>Votre panier est vide !</h3>
@@ -18,85 +25,71 @@
       <ng-container *ngFor="let cartItem of cartItems" class="col-sm detailCartItem">
         <ng-container *ngIf="cartItem.count !==0">
           <div class="cartItem">
-          <div class="nameItem">
-            <img [src]="cartItem.beer.imgUrl">
-            <span class="name">La {{ cartItem.beer.name }} </span>
-          </div>
-          <div id="detailsCartItem">
-            <div class="showPriceOrCount">
-              <p class="bold">Prix unitaire</p>
-              <p>{{ cartItem.beer.price }} euro.</p>
-           </div>
-
-            <div class="showPriceOrCount">
-
-              <input type="text" min="0" #nb placeholder=" {{ cartItem.count }}"
-                     *ngIf="cartItem.count>4"
-                     (blur)="cartItem.updateCount(nb.value)">
-
-              <div class="form-group"
-                    *ngIf="cartItem.count<=4">
-
-                 <label for="quantites">Quantité</label>
-                 <select class="form-control" id="quantites" name="quantites"
-                         [(ngModel)]="cartItem.count"
-                         #box
-                         (mouseup)="cartItem.updateCount(box.value)">
-                   <option *ngFor="let quantite of cartItem.quantites"> {{ quantite }} </option>
-                   <hr>
-                   <option>+5</option>
-                 </select>
-               </div>
-
+            <div class="nameItem">
+              <img [src]="cartItem.beer.imgUrl">
+              <span class="name">La {{ cartItem.beer.name }} </span>
             </div>
+            <div id="detailsCartItem">
+              <div class="showPriceOrCount">
+                <p class="bold">Prix unitaire</p>
+                <p>{{ cartItem.beer.price }} euro.</p>
+              </div>
 
-            <div class="showPriceOrCount">
-              <p class="bold">Prix total</p>
-              <p>{{cartItem.price}} euro.</p>
-              <span>  </span>
-            </div>
+              <div class="showPriceOrCount">
 
-            <div class="showPriceOrCount">
+                <input type="text" min="0" #nb placeholder=" {{ cartItem.count }}"
+                       *ngIf="cartItem.count>4"
+                       (blur)="cartItem.updateCount(nb.value)">
 
-              <!-- <button class="btn btn-danger deleteCartItem" (click)="_shoppingService.deleteToCart(cartItem.beer)"> Supprimer</button>
-              -->
+                <div class="form-group"
+                     *ngIf="cartItem.count<=4">
 
-               <button class="btn btn-danger deleteCartItem"
-                      (click)="handleCartItemDeleteRequest(cartItem)"
-              > Supprimer</button>
+                  <label for="quantites">Quantité</label>
+                  <select class="form-control" id="quantites" name="quantites"
+                          [(ngModel)]="cartItem.count"
+                          #box
+                          (mouseup)="cartItem.updateCount(box.value)">
+                    <option *ngFor="let quantite of cartItem.quantites"> {{ quantite }} </option>
+                    <hr>
+                    <option>+5</option>
+                  </select>
+                </div>
 
+              </div>
 
-                <!--<div class="popIn" *ngIf="cartItem._showPopInDelete">-->
+              <div class="showPriceOrCount">
+                <p class="bold">Prix total</p>
+                <p>{{cartItem.price}} euro.</p>
+                <span>  </span>
+              </div>
 
-                  <!--<p class="text-primary bold">Voulez-vous vraiment supprimer cette article de votre panier ?</p>-->
+              <div class="showPriceOrCount">
 
-                  <!--<div class="buttonsBox">-->
+                <!-- <button class="btn btn-danger deleteCartItem" (click)="_shoppingService.deleteToCart(cartItem.beer)"> Supprimer</button>
+                -->
 
-                    <!--<button class="btn" (click)="cartItem.hidePopInDelete()">Annuler</button>-->
+                <button class="btn btn-danger deleteCartItem"
+                        (click)="handleCartItemDeleteRequest(cartItem)"
+                > Supprimer
+                </button>
 
-                    <!--<button class="btn btn-danger" (click)="handleCartItemDelete(cartItem)">Valider</button>-->
-
-                  <!--</div>-->
-                <!--</div>-->
+              </div>
 
             </div>
 
           </div>
-
-          </div>
-          </ng-container>
+        </ng-container>
       </ng-container>
     </ul>
 
-    <!-- a optimiser -->
+    <!-- affiche la PopIn -->
 
-    <app-pop-in-delete *ngIf="cartItemToDelete !== null" title="Voulez-vous vraiment supprimer cette article de votre panier ?"
+    <app-pop-in-delete *ngIf="cartItemToDelete !== null"
+                       title="Voulez-vous vraiment supprimer cette article de votre panier ?"
                        [buttons]="popInButtons" (onButtonClick)="handlePopInEvent($event)">
       <app-beer-detail [beer]="cartItemToDelete.beer"></app-beer-detail>
     </app-pop-in-delete>
 
-    <!--<app-pop-in-delete test="cartItemToDelete"-->
-                       <!--*ngIf="cartItemToDelete !== null">SuppPopInComponent</app-pop-in-delete>-->
 
     <h4 class="">Prix total du panier : <span class="bold"> {{ totalPrice }} </span> euros.</h4>
     <h4 class="">Nombre d'article dans le panier : {{ totalCartItems }}.</h4>
@@ -104,9 +97,19 @@
   </div>
 </div>
 
-<hr>
-<div class="btnCenter">
-  <button class="btn btn-primary" id="btnGoToBeerList"
-          routerLink="/list">Retour à la liste des bières</button>
+
+<div class="btnCenter" *ngIf="!_shoppingService.cartIsEmpty()">
+  <button class="btn btn-success"
+          (click)="handleCartItemConnectCountRequest()">Passer la commande</button>
+
+  <app-pop-in-delete *ngIf=""
+                      title="identifiez-vous"
+                      [buttons]="popInButtons" (onButtonClick)="handleConnectCountEvent($event)">
+
+  </app-pop-in-delete>
 </div>
+
+<hr>
+
+
 

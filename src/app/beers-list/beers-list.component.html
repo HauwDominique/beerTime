@@ -1,20 +1,11 @@
+<!-- acces au panier par un component externe -->
+
 <div class="boxCart">
-  <div>
-    <button id="btnShopping" routerLink="/shopping"
-            [disabled]="_shoppingService.cartIsEmpty()"
-            [ngClass]="{'btn btn-success':!_shoppingService.cartIsEmpty(),
-                        'btn btn-primary':_shoppingService.cartIsEmpty()
-                        }">
-      <span class="glyphicon glyphicon-shopping-cart"></span>
-      <p id="showNbCartItems"> {{ totalCartItems }}</p>
-    </button>
-
-    <p *ngIf="_shoppingService.cartIsEmpty()" class="text-primary">Votre panier est vide !</p>
-    <p *ngIf="!_shoppingService.cartIsEmpty()" class="text-success bold">Commandez !</p>
-
-  </div>
+  <app-order-cart></app-order-cart>
 </div>
 
+
+<!-- affiche la liste des bières -->
 
 <div class="shopping">
 
@@ -36,7 +27,7 @@
       </li>
     </ul>
 
-
+ <!-- BeerDetail
     <div *ngIf="_selectedBeer"
          class="list-group-item detailBeer">
       <h2>La {{_selectedBeer.name}}</h2>
@@ -46,6 +37,16 @@
         bière {{ _selectedBeer.categorie }}</p>
       <h4> Prix : <span class="bold"> {{ _selectedBeer.price }} euro </span></h4>
     </div>
+  </div>
+  -->
+
+    <!--BeerDetail à récupérer à partir du composant externe -->
+
+      <div *ngIf="_selectedBeer"
+           class="list-group-item detailBeer">
+        <app-beer-detail [beer]="_selectedBeer"></app-beer-detail>
+      </div>
+
   </div>
 
 </div>

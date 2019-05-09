@@ -4,16 +4,9 @@ import {Injectable, Input} from "@angular/core";
   providedIn:'root',
 })
 
+// A supprimer car ne sert pas
+
 export class PopInDeleteService {
-
-@Input() _showPopInDelete:boolean;
-
-  constructor (){
-  }
-
-  public hidePopInDelete(){
-    return this._showPopInDelete = false;
-  }
 
 
 

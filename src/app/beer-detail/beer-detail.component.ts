@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Beer } from '../model/Beer';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-beer-detail',
