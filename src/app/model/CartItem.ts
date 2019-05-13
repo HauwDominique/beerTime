@@ -20,6 +20,10 @@ export class CartItem{
     return this._count;
   }
 
+  get price():number{
+    return this._beer.price * this._count;
+  }
+
 
   /**
    * met à jour les quantités modifiées par l'utilisateur d'un produit du panier
@@ -35,12 +39,11 @@ export class CartItem{
     }
   }
 
+  /**
+   * incrémente de 1 la quantité d'un produit du panier à chaque fois que l'utilisateur ajout ce produit au panier
+   */
   public incrementCount():void{
     this._count++;
-  }
-
-  get price():number{
-    return this._beer.price * this._count;
   }
 
 

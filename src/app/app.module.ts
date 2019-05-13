@@ -11,6 +11,9 @@ import { PopInComponent } from './pop-in/pop-in.component';
 import { OrderCartComponent } from './order-cart/order-cart.component';
 import { PopInConnexionComponent } from './pop-in/pop-in-connexion/pop-in-connexion.component';
 import { PopInOrderComponent } from './pop-in/pop-in-order/pop-in-order.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ConnexionComponent } from './connexion/connexion.component';
+import { AddressComponent } from './address/address.component';
 
 
 
@@ -23,7 +26,10 @@ import { PopInOrderComponent } from './pop-in/pop-in-order/pop-in-order.componen
     PopInComponent,
     OrderCartComponent,
     PopInConnexionComponent,
-    PopInOrderComponent
+    PopInOrderComponent,
+    ShoppingListComponent,
+    ConnexionComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
