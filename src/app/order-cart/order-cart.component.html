@@ -1,0 +1,16 @@
+<div class="boxCart">
+  <div>
+    <button id="btnShopping" routerLink="/shopping"
+            [disabled]="_shoppingService.cartIsEmpty()"
+            [ngClass]="{'btn btn-success':!_shoppingService.cartIsEmpty(),
+                        'btn btn-primary':_shoppingService.cartIsEmpty()
+                        }">
+      <span class="glyphicon glyphicon-shopping-cart"></span>
+      <p id="showNbCartItems"> {{ totalCartItems }}</p>
+    </button>
+
+    <p *ngIf="_shoppingService.cartIsEmpty()" class="text-primary">Votre panier est vide !</p>
+    <p *ngIf="!_shoppingService.cartIsEmpty()" class="text-success bold">Commandez !</p>
+
+  </div>
+</div>

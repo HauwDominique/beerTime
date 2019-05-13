@@ -1,0 +1,8 @@
+<p>Nouveau chez BeerTime ?</p>
+
+<div *ngFor="let button of buttonOrder" class="buttonsBox">
+  <button class="btn {{ button.className }}" (click)="handleButtonEvent(button)"><span
+    class="bold">{{ button.label }}</span></button>
+</div>
+<hr>
+

@@ -1,0 +1,46 @@
+.PopInBox{
+  position : absolute;
+  top:350px;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width : 280px;
+  background-color: #FFFF;
+  border : solid black 1px;
+  border-radius: 5px;
+  box-shadow: grey 4px 4px 8px 0px;
+  padding : 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+p{
+  font-size: 2rem;
+  font-weight: bold;
+  color : #007BFF;
+}
+
+.title{
+  border-bottom: #007BFF solid 1px;
+  font-size: 2.5rem;
+}
+
+label{
+  text-align: center;
+}
+
+input{
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button{
+  margin: 10px;
+}
+
+.subtitle{
+  margin-top:10px;
+  padding-top : 10px;
+  border-top: solid grey 1px;
+}

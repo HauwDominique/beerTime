@@ -29,17 +29,16 @@
   <button class="btn btn-success"
           (click)="handleConnectToCountRequest(_shoppingService.cartItems)">Passer la commande</button>
 
-  <app-pop-in *ngIf="cartToValidated != null"
-                      title="Connexion"
-                      [buttons]="popInButtonsConnexion" (onButtonToConnectClick)="handleConnectToCountEvent($event)">
+  <!--<app-pop-in *ngIf="cartToValidated != null"-->
+                      <!--title="Connexion"-->
+                      <!--[buttons]="popInButtonsConnexion" (onButtonToConnectClick)="handleConnectToCountEvent($event)">-->
+    <!---->
+  <!--</app-pop-in>-->
 
-    <app-pop-in-order [buttonOrder]="popInButtonsOrder"></app-pop-in-order>
+  <app-connexion *ngIf="cartToValidated != null"
+                 (onButtonToConnectClick)="handletoCloseConnexionEvent($event)"
+                                          ></app-connexion>
 
-    <app-pop-in-connexion></app-pop-in-connexion>
-
-
-
-  </app-pop-in>
 </div>
 
 <hr>
