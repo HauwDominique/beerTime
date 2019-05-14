@@ -23,21 +23,16 @@
  </div>
 
 
-<!-- affiche la popIn de connexion -->
-
 <div class="btnCenter" *ngIf="!_shoppingService.cartIsEmpty()">
   <button class="btn btn-success"
           (click)="handleConnectToCountRequest(_shoppingService.cartItems)">Passer la commande</button>
 
-  <!--<app-pop-in *ngIf="cartToValidated != null"-->
-                      <!--title="Connexion"-->
-                      <!--[buttons]="popInButtonsConnexion" (onButtonToConnectClick)="handleConnectToCountEvent($event)">-->
-    <!---->
-  <!--</app-pop-in>-->
+
+  <!-- affiche la fenêtre de connexion -->
 
   <app-connexion *ngIf="cartToValidated != null"
-                 (onButtonToConnectClick)="handletoCloseConnexionEvent($event)"
-                                          ></app-connexion>
+                 (onButtonToConnectClick)="handletoCloseConnexionEvent($event)">
+  </app-connexion>
 
 </div>
 

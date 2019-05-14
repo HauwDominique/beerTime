@@ -1,5 +1,5 @@
 <div class="PopInBox">
-  <p class="title" > {{ title }}</p>
+  <p class="title"> {{ title }}</p>
 
   <label>Email</label>
   <input type="email">
@@ -11,13 +11,13 @@
     <button class="btn btn-secondary bold" (click)="handleClosePopInConnexion()">Annuler</button>
     <a routerLink="/address">
       <button class="btn btn-success bold">Se connecter</button>
-
     </a>
   </div>
 
 
   <p class="subtitle"> Nouveau chez BeerTime ?</p>
-  <button class="btn btn-primary bold">Créer votre compte BeerTime</button>
-
+  <a routerLink="/register">
+    <button class="btn btn-primary bold">Créer votre compte BeerTime</button>
+  </a>
 
 </div>

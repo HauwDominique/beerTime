@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopInConnexionComponent } from './pop-in-connexion.component';
+import { RegisterCountComponent } from './register-count.component';
 
-describe('PopInConnexionComponent', () => {
-  let component: PopInConnexionComponent;
-  let fixture: ComponentFixture<PopInConnexionComponent>;
+describe('RegisterCountComponent', () => {
+  let component: RegisterCountComponent;
+  let fixture: ComponentFixture<RegisterCountComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopInConnexionComponent ]
+      declarations: [ RegisterCountComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopInConnexionComponent);
+    fixture = TestBed.createComponent(RegisterCountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

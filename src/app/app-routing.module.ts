@@ -7,6 +7,7 @@ import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {PopInComponent} from './pop-in/pop-in.component';
 import {ConnexionComponent} from './connexion/connexion.component';
 import {AddressComponent} from "./address/address.component";
+import {RegisterCountComponent} from "./register-count/register-count.component";
 
 
 const routes:Routes = [
@@ -17,13 +18,15 @@ const routes:Routes = [
   { path: 'shoppingList', component:ShoppingListComponent},
   { path: 'popIn', component:PopInComponent },
   { path: 'connexion', component:ConnexionComponent },
+  { path: 'register', component:RegisterCountComponent },
   { path: 'address', component:AddressComponent }
+
 ]
 
 
 @NgModule({
   declarations: [],
   exports: [RouterModule],
-  imports: [ RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)],
 })
 export class AppRoutingModule { }

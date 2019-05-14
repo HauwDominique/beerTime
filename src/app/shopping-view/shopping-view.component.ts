@@ -30,7 +30,7 @@ export class ShoppingViewComponent implements OnInit {
 }
 
   /**
-   * methode qui permet de fermer la "popIn" de connexion en cliquant sur le bouton "annuler"
+   * méthode qui permet de fermer la fenêtre de connexion en cliquant sur le bouton "annuler"
    */
   public handletoCloseConnexionEvent(){
     this.cartToValidated = null;

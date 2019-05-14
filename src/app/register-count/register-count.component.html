@@ -1,0 +1,30 @@
+<form #userForm="ngForm">
+
+  <div class="PopInBox">
+    <p>Créer un compte</p>
+
+    <label for="lastName">Votre nom</label>
+    <input type="text" id="lastName" required
+            [(ngModel)]="model.lastName" name="lastName">
+    TODO: remove this:{{model._lastName}}
+
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" required
+            [ngModel]="model.email" email="email">
+    TODO: remove this:{{model.email}}
+
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" required
+            [(ngModel)]="model.password" password="password">
+    TODO: remove this:{{model.password}}
+
+
+    <button class="btn btn-secondary">Annuler</button>
+
+    <a routerLink="/connexion">
+      <button type="submit" class="btn btn-success">Valider</button>
+    </a>
+
+  </div>
+</form>
