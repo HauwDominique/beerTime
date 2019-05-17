@@ -13,6 +13,9 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { AddressComponent } from './address/address.component';
 import { RegisterCountComponent } from './register-count/register-count.component';
+import { HttpClientModule} from "@angular/common/http";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { environment } from "../environments/environment";
 
 
 @NgModule({
@@ -31,7 +34,12 @@ import { RegisterCountComponent } from './register-count/register-count.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+
+    //A voir si cela fonctionne
+    environment.production ?
+      HttpClientInMemoryWebApiModule.forRoot(InMemoryDb, { delay: 100 }) : []
   ],
   providers: [],
   bootstrap: [AppComponent]
