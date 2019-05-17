@@ -16,6 +16,13 @@ export class RegisterCountComponent {
     this.submitted = true
   }
 
+  /**
+   * méthode qui vide les champs
+   */
+  newUser(){
+    this.model=new User(2, '', "", "", "", "");
+  }
+
 
 //TODO : Remove this when we're done
   get diagnostic() {

@@ -1,30 +1,63 @@
-<form #userForm="ngForm">
+{{diagnostic}}
+
+<!--<div [hidden]="submitted">-->
+
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
 
   <div class="PopInBox">
     <p>Créer un compte</p>
 
     <label for="lastName">Votre nom</label>
     <input type="text" id="lastName" required
-            [(ngModel)]="model.lastName" name="lastName">
-    TODO: remove this:{{model._lastName}}
+           [(ngModel)]="model.lastName" name="lastName"
+           #name="ngModel">
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Le nom est obligatoire</div>
+
+    TODO: remove this:{{model.lastName}}
 
 
     <label for="email">E-mail</label>
     <input type="email" id="email" required
-            [ngModel]="model.email" email="email">
+           [(ngModel)]="model.email" name="email"
+           #mail="ngModel">
+    <div [hidden]="mail.valid || mail.pristine" class="alert alert-danger">L'email est obligatoire</div>
+
     TODO: remove this:{{model.email}}
 
     <label for="password">Mot de passe</label>
     <input type="password" id="password" required
-            [(ngModel)]="model.password" password="password">
+           [(ngModel)]="model.password" name="password"
+           #psw="ngModel">
+    <div [hidden]="psw.valid || psw.pristine" class="alert alert-danger">Le nom est obligatoire</div>
+
     TODO: remove this:{{model.password}}
 
-
     <button class="btn btn-secondary">Annuler</button>
-
-    <a routerLink="/connexion">
-      <button type="submit" class="btn btn-success">Valider</button>
-    </a>
+    <button class="btn btn-primary" (click)="newUser(); userForm.reset()">Nouvel utlisateur</button>
+    <button type="submit" class="btn btn-warning" [disabled]="!userForm.form.valid">Soummettre</button>
 
   </div>
 </form>
+
+<!--</div>-->
+
+<div [hidden]="!submitted">
+  <h3>Vérifiez vos paramètres</h3>
+
+  <div class="row">
+    <div class="col-xs-3">Nom</div>
+    <div class="col-xs-9">{{model.lastName}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Prénom</div>
+    <div class="col-xs-9">{{model.firstName}}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Email</div>
+    <div class="col-xs-9">{{model.email}}</div>
+  </div>
+
+  <button class="btn btn-warning" (click)="submitted=false">Modifier</button>
+
+  <button class="btn btn-success" (click)="onSubmit()" routerLink="/connexion">Valider</button>
+</div>
