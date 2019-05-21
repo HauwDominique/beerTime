@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { User} from "../model/User";
+import { UserService } from "../UserService";
 
 @Component({
   selector: 'app-register',
@@ -7,6 +8,9 @@ import { User} from "../model/User";
   styleUrls: ['./register-count.component.css']
 })
 export class RegisterCountComponent {
+
+  // constructor(userService : UserService){
+  // }
 
   model = new User(1, 'John', 'Doe', 'JohnDoe@gmail.com', '1234', 'rue de la baston' );
 

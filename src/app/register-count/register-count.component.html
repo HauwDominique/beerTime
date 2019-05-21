@@ -7,13 +7,23 @@
   <div class="PopInBox">
     <p>Créer un compte</p>
 
+    <label for="firstName">Votre prénom</label>
+    <input type="text" id="firstName" required
+           [(ngModel)]="model.firstName" name="firstName"
+           #firstName="ngModel">
+    <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">Le prénom est obligatoire</div>
+
+    <!--TODO: remove this:{{model.firstName}}-->
+
+
+
     <label for="lastName">Votre nom</label>
     <input type="text" id="lastName" required
            [(ngModel)]="model.lastName" name="lastName"
-           #name="ngModel">
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">Le nom est obligatoire</div>
+           #lastName="ngModel">
+    <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">Le nom est obligatoire</div>
 
-    TODO: remove this:{{model.lastName}}
+    <!--TODO: remove this:{{model.lastName}}-->
 
 
     <label for="email">E-mail</label>
@@ -22,25 +32,35 @@
            #mail="ngModel">
     <div [hidden]="mail.valid || mail.pristine" class="alert alert-danger">L'email est obligatoire</div>
 
-    TODO: remove this:{{model.email}}
+    <!--TODO: remove this:{{model.email}}-->
 
     <label for="password">Mot de passe</label>
     <input type="password" id="password" required
            [(ngModel)]="model.password" name="password"
            #psw="ngModel">
-    <div [hidden]="psw.valid || psw.pristine" class="alert alert-danger">Le nom est obligatoire</div>
+    <div [hidden]="psw.valid || psw.pristine" class="alert alert-danger">Le mot de passe est obligatoire</div>
 
-    TODO: remove this:{{model.password}}
+    <!--TODO: remove this:{{model.password}}-->
 
+
+    <!-- LES BOUTONS -->
     <button class="btn btn-secondary">Annuler</button>
-    <button class="btn btn-primary" (click)="newUser(); userForm.reset()">Nouvel utlisateur</button>
-    <button type="submit" class="btn btn-warning" [disabled]="!userForm.form.valid">Soummettre</button>
+
+    <!--<button class="btn btn-primary" (click)="newUser(); userForm.reset()">Nouvel utlisateur</button>-->
+
+    <button class="btn btn-success" (click)="onSubmit()"
+            routerLink="/connexion"
+    >Valider</button>
+
+    <!--<button type="submit" class="btn btn-warning" [disabled]="!userForm.form.valid">Soummettre</button>-->
+
 
   </div>
 </form>
 
 <!--</div>-->
 
+<!-- PARTIE QUI PERMET DE VÉRIFIER LES PARAMETRES SAISIS -->
 <div [hidden]="!submitted">
   <h3>Vérifiez vos paramètres</h3>
 
@@ -59,5 +79,7 @@
 
   <button class="btn btn-warning" (click)="submitted=false">Modifier</button>
 
-  <button class="btn btn-success" (click)="onSubmit()" routerLink="/connexion">Valider</button>
+  <button class="btn btn-success" (click)="onSubmit()"
+          routerLink="/connexion"
+          >Valider</button>
 </div>

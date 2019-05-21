@@ -1,0 +1,20 @@
+<nav class="navbar navbar-primary">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right">
+      <li routerLinkActive="active">
+        <a routerLink="list">Liste des bières</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="isAuth">
+        <a routerLink="signUp">Créer un compte</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="isAuth">
+        <a routerLink="signIn">Connexion</a>
+      </li>
+      <li>
+        <a click="onSignout()"
+           style="cursor:pointer"
+           *ngIf="isAuth">Déconnexion</a>
+      </li>
+    </ul>
+  </div>
+</nav>

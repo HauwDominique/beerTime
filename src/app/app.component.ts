@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -14,5 +15,20 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'beerTime';
+
+  constructor(){
+    const config={
+      apiKey: "AIzaSyAMP2u_8dkaLi5CKpaujOoWQlQ-UjjW78Y",
+      authDomain: "booksdom-bdd.firebaseapp.com",
+      databaseURL: "https://booksdom-bdd.firebaseio.com",
+      projectId: "booksdom-bdd",
+      storageBucket: "booksdom-bdd.appspot.com",
+      messagingSenderId: "725121349485",
+      appId: "1:725121349485:web:17f6e9de5a37ea7e"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(config);
+    }
   }
+
 

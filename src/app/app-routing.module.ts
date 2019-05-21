@@ -6,8 +6,9 @@ import {ShoppingViewComponent} from './shopping-view/shopping-view.component';
 import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {PopInComponent} from './pop-in/pop-in.component';
 import {ConnexionComponent} from './connexion/connexion.component';
-import {AddressComponent} from "./address/address.component";
 import {RegisterCountComponent} from "./register-count/register-count.component";
+import {SignInComponent} from "./auth/sign-in/sign-in.component";
+import {SignUpComponent} from "./auth/sign-up/sign-up.component";
 
 
 const routes:Routes = [
@@ -19,7 +20,8 @@ const routes:Routes = [
   { path: 'popIn', component:PopInComponent },
   { path: 'connexion', component:ConnexionComponent },
   { path: 'register', component:RegisterCountComponent },
-  { path: 'address', component:AddressComponent }
+  { path: 'signIn', component:SignInComponent },
+  { path: 'signUp', component:SignUpComponent }
 
 ]
 

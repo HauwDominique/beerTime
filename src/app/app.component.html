@@ -1,9 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<div class="flex">
-  <h1 class="text-primary"> {{ title | uppercase }} ! </h1>
-  <h4>Un site dédié à la bière.</h4>
+<div class="row">
+
+  <h1 class="text-primary col-lg-2"> {{ title | uppercase }} ! </h1>
+  <h4 class="col-lg">Un site dédié à la bière.</h4>
+
+  <app-header class="col-lg-4"></app-header>
+
 </div>
+
 
 <router-outlet></router-outlet>
 

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {User} from "./model/User";
-
-const USERS:User[]=[];
+import {HttpClient} from "@angular/common/http";
+import {post} from "selenium-webdriver/http";
+import {UsersDataService} from "./UsersData.service";
 
 
 @Injectable({
@@ -10,8 +10,28 @@ const USERS:User[]=[];
 
 export class UserService {
 
-  getAllUsers(){
-    return USERS;
+  SERVER_URL: string = "http://localhost:4200/list";
+
+  constructor(private httpClient:HttpClient){}
+
+  public getUsers(){
+    return this.httpClient.get(this.SERVER_URL + 'users');
+  }
+
+  public getUser(userId){
+    return this.httpClient.get(`${this.SERVER_URL + 'users'}/${userId})`)
+  }
+
+  public createUser(user: {id:number, firstName:string, lastName:string, email: string, password: string}){
+    return this.httpClient.post(`${this.SERVER_URL + 'users'}`, post)
+  }
+
+  public deleteUser(userId){
+    return this.httpClient.delete(`${this.SERVER_URL + 'users'}/${userId}`)
+  }
+
+  public updateUser(user: {id:number, firstName:string, lastName:string, email: string, password: string}){
+    return this.httpClient.put(`${this.SERVER_URL + 'users'}/${user.id}`, post)
   }
 
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,11 +11,14 @@ import { PopInComponent } from './pop-in/pop-in.component';
 import { OrderCartComponent } from './order-cart/order-cart.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { AddressComponent } from './address/address.component';
 import { RegisterCountComponent } from './register-count/register-count.component';
 import { HttpClientModule} from "@angular/common/http";
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
-import { environment } from "../environments/environment";
+import { InMemoryWebApiModule } from "angular-in-memory-web-api";
+import { UsersDataService } from "./UsersData.service";
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { HeaderComponent } from './header/header.component';
+import { AuthService } from "./auth/auth.service";
 
 
 @NgModule({
@@ -28,20 +31,20 @@ import { environment } from "../environments/environment";
     PopInComponent,
     OrderCartComponent,
     ConnexionComponent,
-    AddressComponent,
     RegisterCountComponent,
+    SignUpComponent,
+    SignInComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-
-    //A voir si cela fonctionne
-    environment.production ?
-      HttpClientInMemoryWebApiModule.forRoot(InMemoryDb, { delay: 100 }) : []
+    InMemoryWebApiModule.forRoot(UsersDataService, {delay:100})
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
