@@ -18,7 +18,7 @@ export class AppComponent {
 
   constructor(){
     const config={
-      apiKey: "AIzaSyAMP2u_8dkaLi5CKpaujOoWQlQ-UjjW78Y",
+      apiKey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
       authDomain: "booksdom-bdd.firebaseapp.com",
       databaseURL: "https://booksdom-bdd.firebaseio.com",
       projectId: "booksdom-bdd",
