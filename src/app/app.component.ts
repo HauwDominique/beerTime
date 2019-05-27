@@ -19,12 +19,12 @@ export class AppComponent {
   constructor(){
     const config={
       apiKey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-      authDomain: "booksdom-bdd.firebaseapp.com",
-      databaseURL: "https://booksdom-bdd.firebaseio.com",
-      projectId: "booksdom-bdd",
-      storageBucket: "booksdom-bdd.appspot.com",
-      messagingSenderId: "725121349485",
-      appId: "1:725121349485:web:17f6e9de5a37ea7e"
+      authDomain: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      databaseURL: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+      projectId: "XXXXXX",
+      storageBucket: "XXXXXXX",
+      messagingSenderId: "XXXXXXX",
+      appId: "1:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx"
     };
     // Initialize Firebase
     firebase.initializeApp(config);
